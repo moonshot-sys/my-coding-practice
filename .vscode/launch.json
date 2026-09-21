@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+      "cwd": "${fileDirname}", // <-- 이 줄을 추가합니다 (쉼표 주의)
+      "preLaunchTask": "build project"
+    }
+  ]
+}
