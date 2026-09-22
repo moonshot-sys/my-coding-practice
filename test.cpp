@@ -1,23 +1,18 @@
 #include <iostream>
-//C++의 for 문
-/*변수는 변수 사용 직전에 선언해도 된다.*/
-/*행운의 숫자 맞추기*/
+//C++의 참조자(레퍼런스)
+//c++에서 다른 변수나 상수를 가리키는 방법 : 참조자 레퍼런스
+//함수 인자로 레퍼런스 받기
 
+int change_val(int &p){// 이는 사실상 호출 할때 int& p = number가 실행되는것과 같다. 
+  p =3;
+  return 0; 
+}
 int main(){
-  int lucky_number = 3;
-  std::cout << "내 비밀의 수를 맞추어 보세요~"<< std::endl;
+  int number =5 ;
 
-  int user_input; //사용자 입력
-  while (1) {
-    std::cout <<"입력 : ";
-    std::cin >>user_input; //cin은 사용자로부터 입력을 받아서 >>를 통해 변수에 넣는다.
-                           //cin 또한 std에 정의
-    if(lucky_number == user_input){
-      std::cout<<"맞추셨습니다. "<<std::endl;
-      break;
-    }else{
-      std::cout <<"다시 생각해보세요~" <<std::endl;
-    }
-  }
-  return 0;
+  std::cout << number << std::endl;
+  change_val(number); //포인터가 인자일 때와는 다르게 number 앞에 &를 붙일 필요가 없다.
+                      //이는 참조자를 정의할 때 그냥 int&a = b와 같이 한것과 일맥상통
+  std::cout<<number<<std::endl;
+
 }
