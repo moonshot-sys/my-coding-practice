@@ -1,18 +1,25 @@
 #include <iostream>
-//C++의 참조자(레퍼런스)
-//c++에서 다른 변수나 상수를 가리키는 방법 : 참조자 레퍼런스
-//함수 인자로 레퍼런스 받기
+//참조자 이해하기
 
-int change_val(int &p){// 이는 사실상 호출 할때 int& p = number가 실행되는것과 같다. 
-  p =3;
-  return 0; 
-}
 int main(){
-  int number =5 ;
+  int x;
+  int& y = x;
+  int& z =y;
 
-  std::cout << number << std::endl;
-  change_val(number); //포인터가 인자일 때와는 다르게 number 앞에 &를 붙일 필요가 없다.
-                      //이는 참조자를 정의할 때 그냥 int&a = b와 같이 한것과 일맥상통
-  std::cout<<number<<std::endl;
+  x=1;
+  std::cout << "x : " << x << "y : "<< y << "z : "<< z <<std::endl;
+  
+  y=2;
+  std::cout << "x : " << x << "y : "<< y << "z : "<< z <<std::endl;
 
+  z=3;
+  std::cout << "x : " << x << "y : "<< y << "z : "<< z <<std::endl;
+//참조자의 참조자는 없다.
+//참조자를 사용하게 되면 불필요한 &와 *가 필요없기 때문에 코드를 훨씬 간결하게 나타낼 수 있다.
+//이에 대한 내용으로 cin을 들 수 있다. 
+//scanf로 사용할때는 scanf("%d", &user_input)과 같이 항상 주소값을 전달해 주어야 했지만
+//cin에서는 그냥 std::cout>>user_input;만 해도 잘 작동한다.
+//이는 cin이 레퍼런스로 user_input을 받아서 그렇다. 
+//cin에게 변수 이름을 그대로 넘겨주면 cin은 그 변수의 실제 메모리 주소를 내부적으로 알아서 찾아가 값을 바꿉니다.
+//cin: 변수의 별명(참조)을 바로 붙잡으므로 user_input (참조 전달)
 }
